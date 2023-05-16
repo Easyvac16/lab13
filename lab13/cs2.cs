@@ -12,10 +12,10 @@ namespace lab13
         public string TheaterName { get; set; }
         public string Genre { get; set; }
         public string Duration { get; set; }
-        public string CastList { get; set; }
+        public List<string> CastList { get; set; }
 
         //Конструктор класу
-        public Performance(string performanceName, string theaterName, string genre, string duration, string castList)
+        public Performance(string performanceName, string theaterName, string genre, string duration, List<string> castList)
         {
             this.PerformanceName = performanceName;
             this.TheaterName = theaterName;
@@ -31,7 +31,12 @@ namespace lab13
             Console.WriteLine($"Theater studio:{TheaterName}");
             Console.WriteLine($"Genre of perfomance:{Genre}");
             Console.WriteLine($"Perfomance duration:{Duration}");
-            Console.WriteLine($"List of cast:{CastList}");
+            Console.WriteLine("List of cast:");
+
+            foreach (string actor in CastList)
+            {
+                Console.WriteLine(actor);
+            }
 
         }
 
@@ -51,10 +56,18 @@ namespace lab13
         public static void task_2()
         {
             Console.OutputEncoding = Encoding.Unicode;
+            List<string> cast = new List<string>();
+            cast.Add("Валерій");
+            cast.Add("Бориc");
+            cast.Add("Артем");
+            cast.Add("Ігор");
+            cast.Add("Марія");
+            cast.Add("Анна");
+            cast.Add("Дарина");
 
-            using (Performance perfomance = new Performance("Кайдаші","Театр Старицького", "Трагікомедія", "2 год. 20 хв","Валерій,Бориc,Артем,Ігор,Марія,Анна,Дарина"))
+            using (Performance performance = new Performance("Кайдаші", "Театр Старицького", "Трагікомедія", "2 год. 20 хв", cast))
             {
-                perfomance.Show();
+                performance.Show();
             }
 
             Console.WriteLine();
