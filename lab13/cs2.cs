@@ -31,12 +31,8 @@ namespace lab13
             Console.WriteLine($"Theater studio:{TheaterName}");
             Console.WriteLine($"Genre of perfomance:{Genre}");
             Console.WriteLine($"Perfomance duration:{Duration}");
-            Console.WriteLine("List of cast:");
-
-            foreach (string actor in CastList)
-            {
-                Console.WriteLine(actor);
-            }
+            Console.WriteLine("List of cast:" +string.Join(", ", CastList));
+            
 
         }
 
